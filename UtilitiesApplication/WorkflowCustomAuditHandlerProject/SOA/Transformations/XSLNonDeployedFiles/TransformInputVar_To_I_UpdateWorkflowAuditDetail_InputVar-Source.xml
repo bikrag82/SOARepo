@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<updateActivityCompletionRequest xmlns="http://newmmis.eohhs.ma.gov/schema/mmisWorkflowUtilityServices">
+   <GUID>GUID50</GUID>
+   <TaskId>TaskId51</TaskId>
+</updateActivityCompletionRequest>

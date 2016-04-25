@@ -1,0 +1,14 @@
+<adapter-config name="UpdateWorkfowAuditDetail" adapter="db" wsdlLocation="../WSDLs/UpdateWorkfowAuditDetail.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="mamist5" location="eis/db/mmisBaseApp"/>
+  <endpoint-interaction portType="UpdateWorkfowAuditDetail_ptt" operation="update">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="UpdateWorkfowAuditDetail.TWorkflowAuditdetail"/>
+      <property name="DmlType" value="update"/>
+      <property name="MappingsMetaDataURL" value="UpdateWorkfowAuditDetail-or-mappings.xml"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+      <property name="DetectOmissions" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<tns:TWorkflowAuditCollection xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns6="http://newmmis.eohhs.ma.gov/workflows/xml" xmlns:ns7="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAudit_Tab" xmlns:ns2="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmisWorkflowFault" xmlns:ns1="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/InitiateWorkflowAudit" xmlns:ns4="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon" xmlns:ns3="http://newmmis.eohhs.ma.gov/worklist/xml" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/top/Insert_WorkflowAudit_Tab">
+   <tns:TWorkflowAudit>
+      <tns:sakWorkflow>5</tns:sakWorkflow>
+      <tns:namKeyproperty>Provider ID/Loc</tns:namKeyproperty>
+      <tns:idKeyproperty>110000034E</tns:idKeyproperty>
+      <tns:dteCreation>2015-04-01T18:36:43.878Z</tns:dteCreation>
+      <tns:cdeWorkflowstatus>IN PROGRESS</tns:cdeWorkflowstatus>
+      <tns:indReadyforpurge>N</tns:indReadyforpurge>
+      <tns:indPurged>N</tns:indPurged>
+      <tns:tWorkflowAuditdetailCollection>
+         <tns:TWorkflowAuditdetail>
+            <tns:idGuid>112</tns:idGuid>
+            <tns:idEcid>212</tns:idEcid>
+            <tns:cdeWorkflowAction>I</tns:cdeWorkflowAction>
+            <tns:dteActivitystart>2015-08-24T16:42:57.752-05:00</tns:dteActivitystart>
+            <tns:dteActivitycompletion/>
+            <tns:txtActivitypayload>
+               <ns:WorkitemCreationXML xmlns:mmis="http://newmmis.eohhs.ma.gov/schema/mmisWorkflowUtilityServices" xmlns:mmis1="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon" xmlns:ns="http://newmmis.eohhs.ma.gov/workflows/xml" xmlns:ns1="http://newmmis.eohhs.ma.gov/worklist/xml">
+            <ns:WORKFLOWID>5</ns:WORKFLOWID>
+            <ns:workitemName>BPEL  Request for Provider Profile</ns:workitemName>
+            <!--Optional:-->
+            <ns:description>Provider ID/Loc:110000034E, SSN/FEIN:042767880, DBA Name:LAWRENCE MEMORIAL HOSPITAL, Provider Type:70</ns:description>
+            <!--Optional:-->
+            <ns:comment>Provider ID/Loc:110000034E, SSN/FEIN:042767880, DBA Name:LAWRENCE MEMORIAL HOSPITAL, Provider Type:70</ns:comment>
+            <!--Optional:-->
+            <ns:priority>4</ns:priority>
+            <!--Optional:-->
+            <ns:claimDueDate>2015-07-01T18:36:43.878Z</ns:claimDueDate>
+            <!--Optional:-->
+            <ns:completionDueDate>2016-04-15T18:36:43.878Z</ns:completionDueDate>
+            <!--Optional:-->
+            <ns:creationDate>2015-04-01T18:36:43.878Z</ns:creationDate>
+            <ns:owner>weblogic</ns:owner>
+            <!--Optional:-->
+            <ns:canBeReassigned>true</ns:canBeReassigned>
+            <!--Optional:-->
+            <ns:canBeAborted>true</ns:canBeAborted>
+            <!--Optional:-->
+            <ns:canBeReturned>true</ns:canBeReturned>
+            <!--Optional:-->
+            <ns:assignee>
+               <!--Zero or more repetitions:-->
+               <ns1:user>weblogic</ns1:user>
+               <ns1:group>weblogic</ns1:group>
+            </ns:assignee>
+            <!--1 or more repetitions:-->
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>DBA Name</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>LAWRENCE MEMORIAL HOSPITAL</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Update Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE/>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>NPI</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>1841290467</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Provider ID/Loc</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>110000034E</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Provider Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>70</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>SSN/FEIN</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>042767880</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Submission Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>I</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Date Received</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>03/31/2015</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Status Date</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>-</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>SAK_PROV_XML</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>25842</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Document Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>COR - REQUEST FOR CHANGES TO PROVIDER DATA</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Reason Code</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>-</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>View Image</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>DUMMY</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Status</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>INITIAL REVIEW</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Queue</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>PROFILE UPDATE</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>WorkflowStatusID</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>100</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>WorkflowQueueID</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>200</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+         </ns:WorkitemCreationXML>
+            </tns:txtActivitypayload>
+            <tns:idClerk>bghosh</tns:idClerk>
+            <tns:txtAssignee>weblogic,weblogic</tns:txtAssignee>
+            <tns:sakWorkflow>5</tns:sakWorkflow>
+            <tns:sakStatus>100</tns:sakStatus>
+            <tns:namStatus>INITIAL REVIEW</tns:namStatus>
+            <tns:sakQueue>200</tns:sakQueue>
+            <tns:namQueue>PROFILE UPDATE</tns:namQueue>
+            <tns:dteDatereceived>2015-03-31T00:00:00.000Z</tns:dteDatereceived>
+            <tns:txtSubmissiontype>I</tns:txtSubmissiontype>
+            <tns:txtNpi>1841290467</tns:txtNpi>
+            <tns:txtProvidertype>70</tns:txtProvidertype>
+            <tns:txtDbaname>LAWRENCE MEMORIAL HOSPITAL</tns:txtDbaname>
+            <tns:txtSsnFein>042767880</tns:txtSsnFein>
+            <tns:txtReasoncode>-</tns:txtReasoncode>
+            <tns:txtDocumenttype>COR - REQUEST FOR CHANGES TO PROVIDER DATA</tns:txtDocumenttype>
+            <tns:txtUpdatetype/>
+            <tns:txtProvideridLoc>110000034E</tns:txtProvideridLoc>
+            <tns:txtViewimage>DUMMY</tns:txtViewimage>
+            <tns:txtSakProvXml>25842</tns:txtSakProvXml>
+         </tns:TWorkflowAuditdetail>
+      </tns:tWorkflowAuditdetailCollection>
+   </tns:TWorkflowAudit>
+</tns:TWorkflowAuditCollection>

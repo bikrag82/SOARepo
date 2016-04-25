@@ -1,0 +1,106 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Tue Jun 30 10:58:07 CDT 2015
+  Author:  ghoshb
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="InitiateWorkflowAuditBPEL"
+               targetNamespace="http://xmlns.oracle.com/UtilitiesApplication/WorkflowCustomAuditHandlerProject/InitiateWorkflowAuditBPEL"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/UtilitiesApplication/WorkflowCustomAuditHandlerProject/InitiateWorkflowAuditBPEL"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:ns1="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/InitiateWorkflowAudit"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAudit"
+         xmlns:ns4="http://newmmis.eohhs.ma.gov/schema/mmisWorkflowUtilityServices"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/top/Insert_WorkflowAudit"
+         xmlns:ns5="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAudit_Tab"
+         xmlns:ns6="http://xmlns.oracle.com/pcbpel/adapter/db/top/Insert_WorkflowAudit_Tab">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/InitiateWorkflowAudit"
+          location="../WSDLs/InitiateWorkflowAuditWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"
+          ui:processWSDL="true"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="initiateworkflowauditbpel_client" partnerLinkType="ns1:InitiateWorkflowAuditBPEL" myRole="InitiateWorkflowAuditPortType"/>
+    <partnerLink name="Insert_WorkflowAudit_Tab" partnerLinkType="ns5:Insert_WorkflowAudit_Tab_plt"
+                 partnerRole="Insert_WorkflowAudit_Tab_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="ns1:initiateWorkflowAuditRequest"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="ns1:initiateWorkflowAuditResponse"/>
+   
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in InitiateWorkflowAuditBPEL.wsdl) -->
+    <receive name="receiveInput" partnerLink="initiateworkflowauditbpel_client" portType="ns1:InitiateWorkflowAuditPortType" operation="InitiateWorkflowAudit" variable="inputVariable" createInstance="yes"/>
+    <scope name="ScopeInitiateWorkflowAudit">
+      <variables>
+        <variable name="I_Insert_WorkflowAuditTab_InputVariable"
+                  messageType="ns5:TWorkflowAuditCollection_msg"/>
+        <variable name="I_Insert_WorkflowAuditTab_OutputVariable"
+                  messageType="ns5:TWorkflowAuditCollection_msg"/>
+      </variables>
+      <sequence name="SequenceInitiateWorkflowAudit">
+        <assign name="Transform_InputVar_To_Invoke_Insert_WorkflowAuditTab_InputVariable">
+          <bpelx:annotation>
+            <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+          </bpelx:annotation>
+          <copy>
+            <from>ora:doXSLTransformForDoc("../Transformations/Transform_InputVar_To_I_Insert_WorkflowAuditTab_InputVar.xsl", $inputVariable.input)</from>
+            <to variable="I_Insert_WorkflowAuditTab_InputVariable" part="TWorkflowAuditCollection"/>
+          </copy>
+        </assign>
+        <invoke name="Invoke_Insert_WorkflowAudit"
+                inputVariable="I_Insert_WorkflowAuditTab_InputVariable"
+                outputVariable="I_Insert_WorkflowAuditTab_OutputVariable"
+                partnerLink="Insert_WorkflowAudit_Tab" portType="ns5:Insert_WorkflowAudit_Tab_ptt" operation="insert"
+                bpelx:invokeAsDetail="no"/>
+        <assign name="Assign_SakWorkflowAudit">
+          <copy>
+            <from>$I_Insert_WorkflowAuditTab_OutputVariable.TWorkflowAuditCollection/ns6:TWorkflowAudit/ns6:sakWorkflowaudit</from>
+            <to>$outputVariable.output/ns4:sak_workflowaudit</to>
+          </copy>
+        </assign>
+      </sequence>
+    </scope>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="initiateworkflowauditbpel_client" portType="ns1:InitiateWorkflowAuditPortType" operation="InitiateWorkflowAudit" variable="outputVariable"/>
+  </sequence>
+</process>

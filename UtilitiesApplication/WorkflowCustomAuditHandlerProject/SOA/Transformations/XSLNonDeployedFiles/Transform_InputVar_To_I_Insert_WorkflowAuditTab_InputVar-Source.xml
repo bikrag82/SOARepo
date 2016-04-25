@@ -1,0 +1,115 @@
+  <mmis:initiateWorkflowAuditRequest xmlns:mmis="http://newmmis.eohhs.ma.gov/schema/mmisWorkflowUtilityServices" 
+xmlns:ns="http://newmmis.eohhs.ma.gov/workflows/xml" 
+xmlns:ns1="http://newmmis.eohhs.ma.gov/worklist/xml" 
+xmlns:mmis1="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon">
+         <mmis:GUID>112</mmis:GUID>
+         <mmis:ECID>212</mmis:ECID>
+         <ns:WorkitemCreationXML>
+            <ns:WORKFLOWID>5</ns:WORKFLOWID>
+            <ns:workitemName>BPEL  Request for Provider Profile</ns:workitemName>
+            <!--Optional:-->
+            <ns:description>Provider ID/Loc:110000034E, SSN/FEIN:042767880, DBA Name:LAWRENCE MEMORIAL HOSPITAL, Provider Type:70</ns:description>
+            <!--Optional:-->
+            <ns:comment>Provider ID/Loc:110000034E, SSN/FEIN:042767880, DBA Name:LAWRENCE MEMORIAL HOSPITAL, Provider Type:70</ns:comment>
+            <!--Optional:-->
+            <ns:priority>4</ns:priority>
+            <!--Optional:-->
+            <ns:claimDueDate>2015-07-01T18:36:43.878Z</ns:claimDueDate>
+            <!--Optional:-->
+            <ns:completionDueDate>2016-04-15T18:36:43.878Z</ns:completionDueDate>
+            <!--Optional:-->
+            <ns:creationDate>2015-04-01T18:36:43.878Z</ns:creationDate>
+            <ns:owner>weblogic</ns:owner>
+            <!--Optional:-->
+            <ns:canBeReassigned>true</ns:canBeReassigned>
+            <!--Optional:-->
+            <ns:canBeAborted>true</ns:canBeAborted>
+            <!--Optional:-->
+            <ns:canBeReturned>true</ns:canBeReturned>
+            <!--Optional:-->
+            <ns:assignee>
+               <!--Zero or more repetitions:-->
+               <ns1:user>weblogic</ns1:user>
+               <ns1:group>weblogic</ns1:group>
+            </ns:assignee>
+            <!--1 or more repetitions:-->
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>DBA Name</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>LAWRENCE MEMORIAL HOSPITAL</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Update Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE/>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>NPI</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>1841290467</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Provider ID/Loc</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>110000034E</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Provider Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>70</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>SSN/FEIN</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>042767880</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Submission Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>I</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Date Received</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>03/31/2015</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Status Date</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>-</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>SAK_PROV_XML</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>25842</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Document Type</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>COR - REQUEST FOR CHANGES TO PROVIDER DATA</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Reason Code</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>-</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>View Image</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>DUMMY</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Status</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>INITIAL REVIEW</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>Queue</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>PROFILE UPDATE</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>WorkflowStatusID</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>100</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+            <ns:CustomPropertyType>
+               <ns:PROPERTYNAME>WorkflowQueueID</ns:PROPERTYNAME>
+               <ns:PROPERTYVALUE>200</ns:PROPERTYVALUE>
+            </ns:CustomPropertyType>
+         </ns:WorkitemCreationXML>
+         <!--Optional:-->
+         <mmis:messageContext>
+            <!--Optional:-->
+            <mmis1:businessUser>bghosh</mmis1:businessUser>
+            <!--Optional:-->
+            <mmis1:sender>bghosh</mmis1:sender>
+            <!--Optional:-->
+            <mmis1:sessionId>asd123</mmis1:sessionId>
+         </mmis:messageContext>
+      </mmis:initiateWorkflowAuditRequest>
+   

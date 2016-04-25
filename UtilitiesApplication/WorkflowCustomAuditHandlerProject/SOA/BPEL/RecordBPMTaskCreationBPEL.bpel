@@ -1,0 +1,86 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Jul 09 11:14:59 CDT 2015
+  Author:  ghoshb
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="RecordBPMTaskCreationBPEL"
+               targetNamespace="http://xmlns.oracle.com/UtilitiesApplication/WorkflowCustomAuditHandlerProject/RecordBPMTaskCreationBPEL"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/UtilitiesApplication/WorkflowCustomAuditHandlerProject/RecordBPMTaskCreationBPEL"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:ns1="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/RecordBPMTaskCreation"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAuditDetail">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/RecordBPMTaskCreation"
+          location="../WSDLs/RecordBPMTaskCreationWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"
+          ui:processWSDL="true"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="recordbpmtaskcreationbpel_client" partnerLinkType="ns1:RecordBPMTaskCreationBPEL" myRole="RecordBPMTaskCreationPortType"/>
+    <partnerLink name="Insert_WorkflowAuditDetail" partnerLinkType="ns2:Insert_WorkflowAuditDetail_plt"
+                 partnerRole="Insert_WorkflowAuditDetail_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="ns1:recordBPMTaskCreationRequest"/>
+
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in RecordBPMTaskCreationBPEL.wsdl) -->
+    <receive name="receiveInput" partnerLink="recordbpmtaskcreationbpel_client" portType="ns1:RecordBPMTaskCreationPortType" operation="RecordBPMTaskCreation" variable="inputVariable" createInstance="yes"/>
+    <scope name="ScopeRecordBPMTaskCreation">
+      <variables>
+        <variable name="I_RecordBPMTaskCreation_Insert_InputVariable"
+                  messageType="ns2:TWorkflowAuditdetailCollection_msg"/>
+      </variables>
+      <sequence name="SequenceRecordBPMTaskCreation">
+        <assign name="Transform_InputVar_To_I_RecordBPMTaskCreation_Insert_InputVar">
+          <bpelx:annotation>
+            <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+          </bpelx:annotation>
+          <copy>
+            <from>ora:doXSLTransformForDoc("../Transformations/Transform_InputVar_To_I_RecordBPMTaskCreation_Insert_InputVariable.xsl", $inputVariable.input)</from>
+            <to variable="I_RecordBPMTaskCreation_Insert_InputVariable" part="TWorkflowAuditdetailCollection"/>
+          </copy>
+        </assign>
+        <invoke name="Invoke_Insert_RecordBPMTaskCreation_To_WorkflowAuditDetail" partnerLink="Insert_WorkflowAuditDetail"
+                portType="ns2:Insert_WorkflowAuditDetail_ptt" operation="insert"
+                inputVariable="I_RecordBPMTaskCreation_Insert_InputVariable" bpelx:invokeAsDetail="no"/>
+      </sequence>
+    </scope>
+  </sequence>
+</process>

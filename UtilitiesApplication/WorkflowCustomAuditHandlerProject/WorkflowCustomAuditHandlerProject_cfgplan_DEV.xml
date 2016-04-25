@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" xmlns:edl="http://schemas.oracle.com/events/edl" xmlns="http://schemas.oracle.com/soa/configplan">
+   <composite name="WorkflowCustomAuditHandlerProject">
+      <!--Add search and replace rules for the import section of a composite
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>-->
+      <import>
+         <searchReplace>
+            <search/>
+            <replace/>
+         </searchReplace>
+      </import>
+      <service name="WorkflowCustomAuditHandlerServiceMediator_ep">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler#wsdl.endpoint(WorkflowCustomAuditHandlerServiceMediator_ep/WorkflowCustomAuditPort)</replace>
+            </attribute>
+         </binding>
+      </service>
+      <service name="initiateworkflowauditbpel_client"/>
+      <service name="WorkflowCustomAuditHandlerServiceMediator"/>
+      <service name="updateactivitycompletionbpel_client"/>
+      <service name="updateworkflowauditbpel_client"/>
+      <service name="recordbpmtaskcreationbpel_client"/>
+      <property name="productVersion">
+         <replace>12.1.3.0.2.150402</replace>
+      </property>
+      <property name="compositeID">
+         <replace>ff1abb26-36ea-4cf0-918b-00978fe89710</replace>
+      </property>
+      <!--Add search and replace rules for the component properties
+	For components and service/reference bindings, you can add policy references.
+	Example:
+	<component name="*">
+		<wsp:PolicyReference orawsp:category="management" orawsp:status="enabled" URI="oracle/log_policy"/>
+	</component>-->
+      <component name="InitiateWorkflowAuditBPEL">
+         <property name="bpel.config.transaction">
+            <replace>required</replace>
+         </property>
+      </component>
+      <component name="UpdateActivityCompletionBPEL">
+         <property name="bpel.config.oneWayDeliveryPolicy">
+            <replace>async.persist</replace>
+         </property>
+      </component>
+      <component name="UpdateWorkflowAuditBPEL">
+         <property name="bpel.config.oneWayDeliveryPolicy">
+            <replace>async.persist</replace>
+         </property>
+      </component>
+      <component name="RecordBPMTaskCreationBPEL">
+         <property name="bpel.config.oneWayDeliveryPolicy">
+            <replace>async.persist</replace>
+         </property>
+      </component>
+      <reference name="Insert_WorkflowAudit_Tab"/>
+      <reference name="InitiateWorkflowAuditBPEL.initiateworkflowauditbpel_client"/>
+      <reference name="UpdateActivityCompletionBPEL.updateactivitycompletionbpel_client"/>
+      <reference name="UpdateWorkflowAuditBPEL.updateworkflowauditbpel_client"/>
+      <reference name="RecordBPMTaskCreationBPEL.recordbpmtaskcreationbpel_client"/>
+      <reference name="UpdateWorkfowAuditDetail"/>
+      <reference name="Insert_WorkflowAuditDetail"/>
+      <reference name="Insert_WorkflowAuditDetail"/>
+      <reference name="Insert_WorkflowAudit_Tab">
+         <property name="jca.retry.count">
+            <replace>4</replace>
+         </property>
+         <property name="jca.retry.interval">
+            <replace>1</replace>
+         </property>
+         <property name="jca.retry.backoff">
+            <replace>2</replace>
+         </property>
+         <property name="jca.retry.maxInterval">
+            <replace>120</replace>
+         </property>
+         <binding type="jca"/>
+      </reference>
+      <reference name="Insert_WorkflowAuditDetail">
+         <property name="jca.retry.count">
+            <replace>4</replace>
+         </property>
+         <property name="jca.retry.interval">
+            <replace>1</replace>
+         </property>
+         <property name="jca.retry.backoff">
+            <replace>2</replace>
+         </property>
+         <property name="jca.retry.maxInterval">
+            <replace>120</replace>
+         </property>
+         <binding type="jca"/>
+      </reference>
+      <reference name="UpdateWorkfowAuditDetail">
+         <property name="jca.retry.count">
+            <replace>4</replace>
+         </property>
+         <property name="jca.retry.interval">
+            <replace>1</replace>
+         </property>
+         <property name="jca.retry.backoff">
+            <replace>2</replace>
+         </property>
+         <property name="jca.retry.maxInterval">
+            <replace>120</replace>
+         </property>
+         <binding type="jca"/>
+      </reference>
+   </composite>
+   <!--To configure monitor.config: 
+	<property name="enabled"><replace>true</replace></property>
+	<property name="dataObjectsFolder"><searchReplace><search>mydev</search><replace>myproduction</replace></searchReplace></property>
+	
+	sample properties to configure for adapter: 
+	<jca:property name="QueueName"><replace>medmq1</replace></jca:property>
+	
+	To add search and replace rules for wsdls, xsd and jca files
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>
+	-->
+   <wsdlAndSchema name="Adapters/Insert_WorkflowAuditDetail_db.jca|Adapters/Insert_WorkflowAudit_Tab_db.jca|Adapters/UpdateWorkfowAuditDetail_db.jca|Schemas/Insert_WorkflowAuditDetail_table.xsd|Schemas/Insert_WorkflowAudit_Tab_table.xsd|Schemas/UpdateWorkfowAuditDetail_table.xsd|WSDLs/InitiateWorkflowAuditWrapper.wsdl|WSDLs/Insert_WorkflowAuditDetail.wsdl|WSDLs/Insert_WorkflowAudit_Tab.wsdl|WSDLs/RecordBPMTaskCreationWrapper.wsdl|WSDLs/UpdateActivityCompletionWrapper.wsdl|WSDLs/UpdateWorkflowAuditWrapper.wsdl|WSDLs/UpdateWorkfowAuditDetail.wsdl">
+      <searchReplace>
+         <search/>
+         <replace/>
+      </searchReplace>
+   </wsdlAndSchema>
+</SOAConfigPlan>

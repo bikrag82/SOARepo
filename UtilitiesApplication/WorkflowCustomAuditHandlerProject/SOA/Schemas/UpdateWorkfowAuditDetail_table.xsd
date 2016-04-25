@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/UpdateWorkfowAuditDetail" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/UpdateWorkfowAuditDetail" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="TWorkflowAuditdetailCollection" type="TWorkflowAuditdetailCollection"/>
+   <xs:complexType name="TWorkflowAuditdetailCollection">
+      <xs:sequence>
+         <xs:element name="TWorkflowAuditdetail" type="TWorkflowAuditdetail" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="TWorkflowAuditdetail">
+      <xs:sequence>
+         <xs:element name="idGuid" type="string64"/>
+         <xs:element name="idTask" type="string64" minOccurs="0" nillable="true"/>
+         <xs:element name="dteActivitycompletion" type="xs:dateTime" minOccurs="0" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="string64">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="64"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

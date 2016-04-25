@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<tns:TWorkflowAuditdetailCollection xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns5="http://newmmis.eohhs.ma.gov/workflows/xml" xmlns:ns6="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAuditDetail" xmlns:ns2="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmisWorkflowFault" xmlns:ns1="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/UpdateWorkflowAudit" xmlns:ns4="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon" xmlns:ns3="http://newmmis.eohhs.ma.gov/worklist/xml" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/top/Insert_WorkflowAuditDetail">
+   <tns:TWorkflowAuditdetail>
+      <tns:sakWorkflowaudit>sak_workflowaudit1</tns:sakWorkflowaudit>
+      <tns:idGuid>GUID2</tns:idGuid>
+      <tns:idTask>TaskId4</tns:idTask>
+      <tns:idEcid>ECID3</tns:idEcid>
+      <tns:cdeWorkflowAction>U</tns:cdeWorkflowAction>
+      <tns:dteActivitystart>2015-11-20T09:47:15.971-06:00</tns:dteActivitystart>
+      <tns:dteActivitycompletion/>
+      <tns:txtActivitypayload>
+         <WorkflowTaskUpdateXML xmlns="http://newmmis.eohhs.ma.gov/workflows/xml">
+      <WORKFLOWID>6</WORKFLOWID>
+      <TASKID>TASKID7</TASKID>
+      <GUID>GUID8</GUID>
+      <NAME>NAME9</NAME>
+      <creationDate>2015-11-20T09:46:54.246</creationDate>
+      <QueueSimpleType>
+         <QUEUEID>10</QUEUEID>
+         <QUEUENAME>QUEUENAME11</QUEUENAME>
+      </QueueSimpleType>
+      <StatusSimpleType>
+         <STATUSID>12</STATUSID>
+         <STATUSNAME>STATUSNAME13</STATUSNAME>
+      </StatusSimpleType>
+      <TaskUpdateXML xmlns="http://newmmis.eohhs.ma.gov/worklist/xml">
+         <comment>comment14</comment>
+         <priority>15</priority>
+         <owner>owner16</owner>
+         <canBeReassigned>true</canBeReassigned>
+         <canBeAborted>true</canBeAborted>
+         <canBeReturned>true</canBeReturned>
+         <assignee/>
+         <request>
+            <message/>
+         </request>
+         <response>
+            <message/>
+         </response>
+      </TaskUpdateXML>
+      <CustomPropertyType>
+         <PROPERTYNAME>PROPERTYNAME17</PROPERTYNAME>
+         <PROPERTYVALUE>PROPERTYVALUE18</PROPERTYVALUE>
+      </CustomPropertyType>
+      <CustomPropertyType>
+         <PROPERTYNAME>PROPERTYNAME19</PROPERTYNAME>
+         <PROPERTYVALUE>PROPERTYVALUE20</PROPERTYVALUE>
+      </CustomPropertyType>
+      <CustomPropertyType>
+         <PROPERTYNAME>PROPERTYNAME21</PROPERTYNAME>
+         <PROPERTYVALUE>PROPERTYVALUE22</PROPERTYVALUE>
+      </CustomPropertyType>
+      <DESCRIPTION>DESCRIPTION23</DESCRIPTION>
+   </WorkflowTaskUpdateXML>
+      </tns:txtActivitypayload>
+      <tns:idClerk>businessUser24</tns:idClerk>
+      <tns:txtAssignee>,</tns:txtAssignee>
+      <tns:sakWorkflow>6</tns:sakWorkflow>
+      <tns:sakStatus>12</tns:sakStatus>
+      <tns:namStatus>STATUSNAME13</tns:namStatus>
+      <tns:sakQueue>10</tns:sakQueue>
+      <tns:namQueue>QUEUENAME11</tns:namQueue>
+   </tns:TWorkflowAuditdetail>
+</tns:TWorkflowAuditdetailCollection>

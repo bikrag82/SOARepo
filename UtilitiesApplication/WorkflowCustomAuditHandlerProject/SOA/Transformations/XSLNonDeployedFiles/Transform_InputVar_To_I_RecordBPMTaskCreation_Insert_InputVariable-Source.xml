@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<recordBPMTaskCreationRequest xmlns="http://newmmis.eohhs.ma.gov/schema/mmisWorkflowUtilityServices">
+   <sak_workflowaudit>sak_workflowaudit6</sak_workflowaudit>
+   <GUID>GUID7</GUID>
+   <ECID>ECID8</ECID>
+   <TaskId>TaskId9</TaskId>
+   <Sak_Workflow>Sak_Workflow10</Sak_Workflow>
+</recordBPMTaskCreationRequest>

@@ -1,0 +1,87 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Tue Jul 07 14:20:19 CDT 2015
+  Author:  ghoshb
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="UpdateActivityCompletionBPEL"
+               targetNamespace="http://xmlns.oracle.com/UtilitiesApplication/WorkflowCustomAuditHandlerProject/UpdateActivityCompletionBPEL"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/UtilitiesApplication/WorkflowCustomAuditHandlerProject/UpdateActivityCompletionBPEL"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:ns1="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/UpdateActivityCompletion"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/UpdateWorkfowAuditDetail">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/UpdateActivityCompletion"
+          location="../WSDLs/UpdateActivityCompletionWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"
+          ui:processWSDL="true"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="updateactivitycompletionbpel_client" partnerLinkType="ns1:UpdateActivityCompletionBPEL" myRole="UpdateActivityCompletionPortType"/>
+    <partnerLink name="UpdateWorkfowAuditDetail" partnerLinkType="ns2:UpdateWorkfowAuditDetail_plt"
+                 partnerRole="UpdateWorkfowAuditDetail_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="ns1:updateActivityCompletionRequest"/> 
+
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in UpdateActivityCompletionBPEL.wsdl) -->
+    <receive name="receiveInput" partnerLink="updateactivitycompletionbpel_client" portType="ns1:UpdateActivityCompletionPortType" operation="UpdateActivityCompletion" variable="inputVariable" createInstance="yes"/>
+    <scope name="ScopeUpdateActivitycompletion">
+      <variables>
+        
+        <variable name="I_UpdateWorkflowAuditDetail_InputVar" messageType="ns2:TWorkflowAuditdetailCollection_msg"/>
+      </variables>
+      <sequence name="SequenceUpdateActivitycompletion">
+        <assign name="Transform_InputVar_To_I_UpdateWorkflowAuditDetail_InputVar">
+          <bpelx:annotation>
+            <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+          </bpelx:annotation>
+          <copy>
+            <from>ora:doXSLTransformForDoc("../Transformations/TransformInputVar_To_I_UpdateWorkflowAuditDetail_InputVar.xsl", $inputVariable.input)</from>
+            <to variable="I_UpdateWorkflowAuditDetail_InputVar" part="TWorkflowAuditdetailCollection"/>
+          </copy>
+        </assign>
+        <invoke name="Invoke_I_UpdateWorkflowAuditDetail_InputVariable"
+                inputVariable="I_UpdateWorkflowAuditDetail_InputVar"
+                partnerLink="UpdateWorkfowAuditDetail" portType="ns2:UpdateWorkfowAuditDetail_ptt" operation="update"
+                bpelx:invokeAsDetail="no"/>
+      </sequence>
+    </scope>
+  </sequence>
+</process>

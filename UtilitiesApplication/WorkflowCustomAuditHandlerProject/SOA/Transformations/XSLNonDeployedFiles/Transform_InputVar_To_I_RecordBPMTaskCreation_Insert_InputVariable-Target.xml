@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<tns:TWorkflowAuditdetailCollection xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns5="http://newmmis.eohhs.ma.gov/workflows/xml" xmlns:ns6="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAuditDetail" xmlns:ns2="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmisWorkflowFault" xmlns:ns1="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/RecordBPMTaskCreation" xmlns:ns4="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon" xmlns:ns3="http://newmmis.eohhs.ma.gov/worklist/xml" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/top/Insert_WorkflowAuditDetail">
+   <tns:TWorkflowAuditdetail>
+      <tns:idGuid>GUID7</tns:idGuid>
+      <tns:idTask>TaskId9</tns:idTask>
+      <tns:idEcid>ECID8</tns:idEcid>
+      <tns:cdeWorkflowAction>B</tns:cdeWorkflowAction>
+      <tns:dteActivitystart>2015-07-09T13:25:57.918-05:00</tns:dteActivitystart>
+      <tns:dteActivitycompletion>2015-07-09T13:25:57.918-05:00</tns:dteActivitycompletion>
+      <tns:txtActivitypayload>NotApplicable</tns:txtActivitypayload>
+      <tns:idClerk>ORABPM</tns:idClerk>
+      <tns:sakWorkflow>Sak_Workflow10</tns:sakWorkflow>
+   </tns:TWorkflowAuditdetail>
+</tns:TWorkflowAuditdetailCollection>

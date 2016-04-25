@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<updateWorkflowAuditRequest xmlns="http://newmmis.eohhs.ma.gov/schema/mmisWorkflowUtilityServices">
+   <sak_workflowaudit>sak_workflowaudit1</sak_workflowaudit>
+   <GUID>GUID2</GUID>
+   <ECID>ECID3</ECID>
+   <TaskId>TaskId4</TaskId>
+   <ActionCd>U</ActionCd>
+   <WorkflowTaskUpdateXML xmlns="http://newmmis.eohhs.ma.gov/workflows/xml">
+      <WORKFLOWID>6</WORKFLOWID>
+      <TASKID>TASKID7</TASKID>
+      <GUID>GUID8</GUID>
+      <NAME>NAME9</NAME>
+      <creationDate>2015-11-20T09:46:54.246</creationDate>
+      <QueueSimpleType>
+         <QUEUEID>10</QUEUEID>
+         <QUEUENAME>QUEUENAME11</QUEUENAME>
+      </QueueSimpleType>
+      <StatusSimpleType>
+         <STATUSID>12</STATUSID>
+         <STATUSNAME>STATUSNAME13</STATUSNAME>
+      </StatusSimpleType>
+      <TaskUpdateXML xmlns="http://newmmis.eohhs.ma.gov/worklist/xml">
+         <comment>comment14</comment>
+         <priority>15</priority>
+         <owner>owner16</owner>
+         <canBeReassigned>true</canBeReassigned>
+         <canBeAborted>true</canBeAborted>
+         <canBeReturned>true</canBeReturned>
+         <assignee/>
+         <request>
+            <message/>
+         </request>
+         <response>
+            <message/>
+         </response>
+      </TaskUpdateXML>
+      <CustomPropertyType>
+         <PROPERTYNAME>PROPERTYNAME17</PROPERTYNAME>
+         <PROPERTYVALUE>PROPERTYVALUE18</PROPERTYVALUE>
+      </CustomPropertyType>
+      <CustomPropertyType>
+         <PROPERTYNAME>PROPERTYNAME19</PROPERTYNAME>
+         <PROPERTYVALUE>PROPERTYVALUE20</PROPERTYVALUE>
+      </CustomPropertyType>
+      <CustomPropertyType>
+         <PROPERTYNAME>PROPERTYNAME21</PROPERTYNAME>
+         <PROPERTYVALUE>PROPERTYVALUE22</PROPERTYVALUE>
+      </CustomPropertyType>
+      <DESCRIPTION>DESCRIPTION23</DESCRIPTION>
+   </WorkflowTaskUpdateXML>
+   <messageContext>
+      <businessUser xmlns="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon">businessUser24</businessUser>
+      <sender xmlns="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon">sender25</sender>
+      <sessionId xmlns="http://newmmis.eohhs.ma.gov/serviceobjects/versions/1.0/mmiscommon">sessionId26</sessionId>
+   </messageContext>
+</updateWorkflowAuditRequest>

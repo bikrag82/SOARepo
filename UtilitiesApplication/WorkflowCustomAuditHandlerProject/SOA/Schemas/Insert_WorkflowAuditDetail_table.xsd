@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/Insert_WorkflowAuditDetail" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/Insert_WorkflowAuditDetail" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="TWorkflowAuditdetailCollection" type="TWorkflowAuditdetailCollection"/>
+   <xs:complexType name="TWorkflowAuditdetailCollection">
+      <xs:sequence>
+         <xs:element name="TWorkflowAuditdetail" type="TWorkflowAuditdetail" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="TWorkflowAuditdetail">
+      <xs:sequence>
+         <xs:element name="sakWorkflowaudit" type="xs:int"/>
+         <xs:element name="idGuid" type="string64"/>
+         <xs:element name="idTask" type="string64" minOccurs="0" nillable="true"/>
+         <xs:element name="idEcid" type="string64" minOccurs="0"/>
+         <xs:element name="cdeWorkflowAction" type="string1" minOccurs="0"/>
+         <xs:element name="dteActivitystart" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="dteActivitycompletion" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="txtActivitypayload" type="xs:string" minOccurs="0"/>
+         <xs:element name="idClerk" type="string8" minOccurs="0"/>
+         <xs:element name="txtAssignee" type="string128" minOccurs="0" nillable="true"/>
+         <xs:element name="sakWorkflow" type="xs:int" minOccurs="0"/>
+         <xs:element name="idClimant" type="string8" minOccurs="0" nillable="true"/>
+         <xs:element name="sakStatus" type="xs:int" minOccurs="0" nillable="true"/>
+         <xs:element name="namStatus" type="string50" minOccurs="0" nillable="true"/>
+         <xs:element name="sakQueue" type="xs:int" minOccurs="0" nillable="true"/>
+         <xs:element name="namQueue" type="string50" minOccurs="0" nillable="true"/>
+         <xs:element name="txtTrackingnumber" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtPanumber" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtAssignment" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="dteDatereceived" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="dteCorneliusduedate" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="txtMemberid" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtAttachid" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtPasnumber" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="dteAdmissiondate" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="txtMembername" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtFacilityname" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="dteAssigneddate" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="txtMhreviewtype" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="dteDeffereddate" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="txtPcc" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtSubmissiontype" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="dteStatusdate" type="xs:dateTime" minOccurs="0" nillable="true"/>
+         <xs:element name="txtNpi" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtServicelocation" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtProvidertype" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtDbaname" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtSsnFein" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtInternalatn" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtExternalatn" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtReasoncode" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtDocumenttype" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtUpdatetype" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtProvideridLoc" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtViewimage" type="string256" minOccurs="0" nillable="true"/>
+         <xs:element name="txtSakProvXml" type="string256" minOccurs="0" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="string64">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="64"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string1">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="1"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string8">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="8"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string128">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="128"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string50">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="50"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string256">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="256"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

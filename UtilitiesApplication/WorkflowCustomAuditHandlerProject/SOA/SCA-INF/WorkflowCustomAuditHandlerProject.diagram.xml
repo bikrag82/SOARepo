@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+    <dgm:gService name="WorkflowCustomAuditHandlerServiceMediator_ep">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="187" width="137" height="120">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="180" width="156" height="134">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="WorkflowCustomAuditHandlerServiceMediator_ep" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler#wsdl.interface(WorkflowCustomAuditPortType)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="20" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>InitiateWorkflowAudit</dgm:item>
+            <dgm:item>UpdateActivityCompletion</dgm:item>
+            <dgm:item>UpdateWorkflowAudit</dgm:item>
+            <dgm:item>RecordBPMTaskCreation</dgm:item>
+        </dgm:operations>
+    </dgm:gService>
+    <dgm:gReference name="Insert_WorkflowAudit_Tab">
+        <dgm:body borderWidth="2" arcRad="20" X="701" Y="41" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="691" Y="34" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Insert_WorkflowAudit_Tab" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAudit_Tab#wsdl.interface(Insert_WorkflowAudit_Tab_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>insert</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="Insert_WorkflowAuditDetail">
+        <dgm:body borderWidth="2" arcRad="20" X="701" Y="297" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="691" Y="290" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="Insert_WorkflowAuditDetail" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAuditDetail#wsdl.interface(Insert_WorkflowAuditDetail_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>insert</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gReference name="UpdateWorkfowAuditDetail">
+        <dgm:body borderWidth="2" arcRad="20" X="701" Y="181" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="691" Y="174" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="UpdateWorkfowAuditDetail" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/UpdateWorkfowAuditDetail#wsdl.interface(UpdateWorkfowAuditDetail_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/db_adapter_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>update</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
+    <dgm:gComponent name="InitiateWorkflowAuditBPEL">
+        <dgm:body borderWidth="2" arcRad="20" X="488" Y="26" width="130" height="61">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="478" Y="19" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="initiateworkflowauditbpel_client" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/InitiateWorkflowAudit#wsdl.interface(InitiateWorkflowAuditPortType)"/>
+        <dgm:outputPort name="Insert_WorkflowAudit_Tab" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAudit_Tab#wsdl.interface(Insert_WorkflowAudit_Tab_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="WorkflowCustomAuditHandlerServiceMediator">
+        <dgm:body borderWidth="2" arcRad="20" X="274" Y="172" width="130" height="136">
+            <dgm:borderColor r="128" g="92" b="148"/>
+            <dgm:lightBgColor r="208" g="169" b="227"/>
+            <dgm:darkBgColor r="183" g="132" b="212"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="264" Y="165" width="150" height="152">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="WorkflowCustomAuditHandlerServiceMediator" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler#wsdl.interface(WorkflowCustomAuditPortType)"/>
+        <dgm:outputPort name="InitiateWorkflowAuditBPEL.initiateworkflowauditbpel_client" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/InitiateWorkflowAudit#wsdl.interface(InitiateWorkflowAuditPortType)"/>
+        <dgm:outputPort name="UpdateActivityCompletionBPEL.updateactivitycompletionbpel_client" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/UpdateActivityCompletion#wsdl.interface(UpdateActivityCompletionPortType)"/>
+        <dgm:outputPort name="UpdateWorkflowAuditBPEL.updateworkflowauditbpel_client" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/UpdateWorkflowAudit#wsdl.interface(UpdateWorkflowAuditPortType)"/>
+        <dgm:outputPort name="RecordBPMTaskCreationBPEL.recordbpmtaskcreationbpel_client" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/RecordBPMTaskCreation#wsdl.interface(RecordBPMTaskCreationPortType)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/mediator/resource/image/mediator_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="UpdateActivityCompletionBPEL">
+        <dgm:body borderWidth="2" arcRad="20" X="488" Y="166" width="130" height="61">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="478" Y="159" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="updateactivitycompletionbpel_client" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/UpdateActivityCompletion#wsdl.interface(UpdateActivityCompletionPortType)"/>
+        <dgm:outputPort name="UpdateWorkfowAuditDetail" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/UpdateWorkfowAuditDetail#wsdl.interface(UpdateWorkfowAuditDetail_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="UpdateWorkflowAuditBPEL">
+        <dgm:body borderWidth="2" arcRad="20" X="488" Y="261" width="130" height="61">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="478" Y="254" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="updateworkflowauditbpel_client" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/UpdateWorkflowAudit#wsdl.interface(UpdateWorkflowAuditPortType)"/>
+        <dgm:outputPort name="Insert_WorkflowAuditDetail" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAuditDetail#wsdl.interface(Insert_WorkflowAuditDetail_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="RecordBPMTaskCreationBPEL">
+        <dgm:body borderWidth="2" arcRad="20" X="488" Y="356" width="130" height="61">
+            <dgm:borderColor r="69" g="113" b="140"/>
+            <dgm:lightBgColor r="166" g="208" b="230"/>
+            <dgm:darkBgColor r="99" g="162" b="201"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="478" Y="349" width="150" height="77">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="recordbpmtaskcreationbpel_client" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://newmmis.eohhs.ma.gov/mmisWorkflowCustomAuditHandler/RecordBPMTaskCreation#wsdl.interface(RecordBPMTaskCreationPortType)"/>
+        <dgm:outputPort name="Insert_WorkflowAuditDetail" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/pcbpel/adapter/db/UtilitiesApplication/WorkflowCustomAuditHandlerProject/Insert_WorkflowAuditDetail#wsdl.interface(Insert_WorkflowAuditDetail_ptt)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gWireLink source="WorkflowCustomAuditHandlerServiceMediator_ep" target="WorkflowCustomAuditHandlerServiceMediator/WorkflowCustomAuditHandlerServiceMediator" width="2">
+        <dgm:gSegment X1="168" Y1="197" X2="264" Y2="197"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="WorkflowCustomAuditHandlerServiceMediator/InitiateWorkflowAuditBPEL.initiateworkflowauditbpel_client" target="InitiateWorkflowAuditBPEL/initiateworkflowauditbpel_client" width="2">
+        <dgm:gSegment X1="414" Y1="197" X2="439" Y2="197"/>
+        <dgm:gSegment X1="439" Y1="197" X2="439" Y2="51"/>
+        <dgm:gSegment X1="439" Y1="51" X2="478" Y2="51"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="InitiateWorkflowAuditBPEL/Insert_WorkflowAudit_Tab" target="Insert_WorkflowAudit_Tab" width="2">
+        <dgm:gSegment X1="628" Y1="51" X2="691" Y2="51"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="WorkflowCustomAuditHandlerServiceMediator/UpdateActivityCompletionBPEL.updateactivitycompletionbpel_client" target="UpdateActivityCompletionBPEL/updateactivitycompletionbpel_client" width="2">
+        <dgm:gSegment X1="414" Y1="222" X2="454" Y2="222"/>
+        <dgm:gSegment X1="454" Y1="222" X2="454" Y2="191"/>
+        <dgm:gSegment X1="454" Y1="191" X2="478" Y2="191"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="UpdateActivityCompletionBPEL/UpdateWorkfowAuditDetail" target="UpdateWorkfowAuditDetail" width="2">
+        <dgm:gSegment X1="628" Y1="191" X2="691" Y2="191"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="WorkflowCustomAuditHandlerServiceMediator/UpdateWorkflowAuditBPEL.updateworkflowauditbpel_client" target="UpdateWorkflowAuditBPEL/updateworkflowauditbpel_client" width="2">
+        <dgm:gSegment X1="414" Y1="247" X2="454" Y2="247"/>
+        <dgm:gSegment X1="454" Y1="247" X2="454" Y2="286"/>
+        <dgm:gSegment X1="454" Y1="286" X2="478" Y2="286"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="UpdateWorkflowAuditBPEL/Insert_WorkflowAuditDetail" target="Insert_WorkflowAuditDetail" width="2">
+        <dgm:gSegment X1="628" Y1="286" X2="667" Y2="286"/>
+        <dgm:gSegment X1="667" Y1="286" X2="667" Y2="307"/>
+        <dgm:gSegment X1="667" Y1="307" X2="691" Y2="307"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="WorkflowCustomAuditHandlerServiceMediator/RecordBPMTaskCreationBPEL.recordbpmtaskcreationbpel_client" target="RecordBPMTaskCreationBPEL/recordbpmtaskcreationbpel_client" width="2">
+        <dgm:gSegment X1="414" Y1="272" X2="439" Y2="272"/>
+        <dgm:gSegment X1="439" Y1="272" X2="439" Y2="381"/>
+        <dgm:gSegment X1="439" Y1="381" X2="478" Y2="381"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="RecordBPMTaskCreationBPEL/Insert_WorkflowAuditDetail" target="Insert_WorkflowAuditDetail" width="2">
+        <dgm:gSegment X1="628" Y1="381" X2="652" Y2="381"/>
+        <dgm:gSegment X1="652" Y1="381" X2="652" Y2="307"/>
+        <dgm:gSegment X1="652" Y1="307" X2="691" Y2="307"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+</dgm:gDiagram>
